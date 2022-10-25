@@ -8,10 +8,13 @@ export default class LoginService implements IService {
     const hash = Bcrypt.encrypt(password);
     console.log('hash', hash);
     const user = await User.findOne({ where: { email } });
-    if (!user) return { type: 'error', message: 'Email invalid' };
+
+    const invalidMessage = { type: 'error', message: 'Incorrect email or password' };
+
+    if (!user) return invalidMessage;
 
     if (!Bcrypt.checkPassword(password, user.password)) {
-      return { type: 'error', message: 'Password invalid' };
+      return invalidMessage;
     }
 
     const payload = {

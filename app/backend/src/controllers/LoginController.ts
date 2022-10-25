@@ -8,7 +8,7 @@ export default class LoginController {
     const { email, password } = req.body;
     const { type, message } = await this.service.authLogin(email, password);
 
-    if (type) return res.status(400).json({ message });
+    if (type) return res.status(401).json({ message });
 
     res.status(200).json({ token: message });
   };

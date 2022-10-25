@@ -5,11 +5,11 @@ export default class LoginMiddleware {
     const { email, password } = req.body;
     const re = /\S+@\S+\.\S+/;
     if (!email || !password) {
-      return res.status(400).json({ message: 'Some required fields are missing' });
+      return res.status(400).json({ message: 'All fields must be filled' });
     }
-    if (!re.test(email)) return res.status(400).json({ message: 'Invalid email' });
+    if (!re.test(email)) return res.status(401).json({ message: 'Incorrect email or password' });
 
-    if (password.length < 6) return res.status(400).json({ message: 'Invalid password' });
+    if (password.length < 6) return res.status(400).json({ message: 'All fields must be filled' });
     next();
   };
 }
