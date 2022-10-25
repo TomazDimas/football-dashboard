@@ -3,4 +3,8 @@ export default interface IService {
     email: string,
     password: string
   ): Promise<{ type: string; message: string } | { type: null; message: string }>;
+
+  getAll(
+    email: string,
+  ): Promise<{ type: string; message: string } | { type: null; message: string }>;
 }

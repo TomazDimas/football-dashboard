@@ -4,17 +4,19 @@ import Token from '../utils/JWTToken';
 import IService from '../interfaces/IService';
 
 export default class LoginService implements IService {
+  invalidMessage = {
+    type: 'error',
+    message: 'Incorrect email or password',
+  };
+
   public authLogin = async (email: string, password: string) => {
     const hash = Bcrypt.encrypt(password);
-    console.log('hash', hash);
     const user = await User.findOne({ where: { email } });
 
-    const invalidMessage = { type: 'error', message: 'Incorrect email or password' };
-
-    if (!user) return invalidMessage;
+    if (!user) return this.invalidMessage;
 
     if (!Bcrypt.checkPassword(password, user.password)) {
-      return invalidMessage;
+      return this.invalidMessage;
     }
 
     const payload = {
@@ -23,5 +25,13 @@ export default class LoginService implements IService {
     };
     const token = Token.generateToken(payload);
     return { type: null, message: token };
+  };
+
+  public getAll = async (email: string) => {
+    const userRole = await User.findOne({ where: { email } });
+
+    if (!userRole) return this.invalidMessage;
+
+    return { type: null, message: userRole.role };
   };
 }
