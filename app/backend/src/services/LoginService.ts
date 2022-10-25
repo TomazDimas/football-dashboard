@@ -6,9 +6,13 @@ import IService from '../interfaces/IService';
 export default class LoginService implements IService {
   public authLogin = async (email: string, password: string) => {
     const hash = Bcrypt.encrypt(password);
+    console.log('hash', hash);
+    const user = await User.findOne({ where: { email } });
+    if (!user) return { type: 'error', message: 'Email invalid' };
 
-    const user = await User.findOne({ where: { email, password: hash } });
-    if (!user) return { type: 'error', message: 'User does not exists' };
+    if (!Bcrypt.checkPassword(password, user.password)) {
+      return { type: 'error', message: 'Password invalid' };
+    }
 
     const payload = {
       email,

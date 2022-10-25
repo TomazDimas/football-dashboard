@@ -3,7 +3,10 @@ import db from '.';
 
 class User extends Model {
   id: number;
-  name: string;
+  username: string;
+  role: string;
+  email: string;
+  password: string;
 }
 
 User.init({
