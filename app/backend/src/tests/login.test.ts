@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe("o endpoint /login no back-end de maneira que ele permita o acesso com dados válidos no front-end", async () => {
-  it("Seu sub-teste", async () => {
+  it("teste /login", async () => {
     const mockLogin = {
       email: "teste@email.com",
       password: "senha123",
