@@ -7,11 +7,8 @@ export default class AuthMiddleware {
     const { authorization } = req.headers;
     if (!authorization) return res.status(401).json({ message: 'Token not found' });
     try {
-      // const { email } = await Token.validateToken(token);
-      console.log(authorization, 'AUTH MIDDLEWARE');
       const decoded = await Token.validateToken(authorization);
       req.body.payload = decoded;
-      // req.user = decoded;
       next();
     } catch (error) {
       res.status(401).json({ message: 'Expired or invalid token' });

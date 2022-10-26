@@ -28,8 +28,6 @@ export default class LoginService implements IService {
   };
 
   public getAll = async (email: string) => {
-    // const payload = await Token.validateToken(token);
-    // const { email } = payload;
     const userRole = await User.findOne({ where: { email } });
 
     if (!userRole) return this.invalidMessage;

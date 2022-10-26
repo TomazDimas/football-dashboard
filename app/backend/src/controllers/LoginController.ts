@@ -15,7 +15,6 @@ export default class LoginController {
   };
 
   getAll = async (req: Request, res: Response) => {
-    // const { email } = req.user;
     const { email } = req.body.payload;
     const { type, message } = await this.service.getAll(email);
 
