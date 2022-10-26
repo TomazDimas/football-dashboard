@@ -1,7 +1,7 @@
 import Bcrypt from '../utils/Bcrypt';
 import User from '../database/models/User';
 import Token from '../utils/JWTToken';
-import IService from '../interfaces/IService';
+import IService from '../interfaces/ILoginService';
 
 export default class LoginService implements IService {
   invalidMessage = {

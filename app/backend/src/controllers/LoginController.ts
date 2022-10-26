@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 // import IRequest from '../interfaces/IRequest';
-import IService from '../interfaces/IService';
+import ILoginService from '../interfaces/ILoginService';
 
 export default class LoginController {
-  constructor(public service: IService) {}
+  constructor(public service: ILoginService) {}
 
   authLogin = async (req: Request, res: Response) => {
     const { email, password } = req.body;
