@@ -7,14 +7,15 @@ export default class Token {
 
   static generateToken = (payload: ILogin) => sign(payload, Token.secret);
 
-  static validateToken = async (token: string):Promise<IPayload> => {
+  static validateToken = async (token: string): Promise<any> => {
     if (!token) throw new Error('Token não informado');
 
     try {
+      console.log(token, 'JWT UTIL');
       const decoded = verify(token, Token.secret);
       return decoded as IPayload;
     } catch (error) {
-      throw new Error('Falha em verificar Token.');
+      console.log(error);
     }
   };
 }

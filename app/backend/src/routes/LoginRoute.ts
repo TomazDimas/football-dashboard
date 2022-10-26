@@ -8,7 +8,7 @@ const router = express.Router();
 
 const LoginContoller = new LoginController(new LoginService());
 
-router.get('/', LoginContoller.getAll);
+router.get('/validate', AuthMiddleware.validate, LoginContoller.getAll);
 
 router.post('/', LoginMiddleware.checkLogin, LoginContoller.authLogin);
 
