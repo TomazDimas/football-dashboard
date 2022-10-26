@@ -14,4 +14,12 @@ export default class TeamService implements ITeamService {
 
     return { type: null, message: teams };
   };
+
+  public getOne = async (id: string) => {
+    const team = await Team.findByPk(id);
+
+    if (!team) return this.invalidMessage;
+
+    return { type: null, message: team };
+  };
 }
