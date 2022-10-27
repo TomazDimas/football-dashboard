@@ -12,12 +12,12 @@ const { expect } = chai;
 describe("o endpoint /login no back-end de maneira que ele permita o acesso com dados válidos no front-end", async () => {
   it("teste /login", async () => {
     const mockLogin = {
-      email: "teste@email.com",
-      password: "senha123",
+      email: "admin@admin.com",
+      password: "secret_admin",
     };
     const mockResponse = {
       token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJEQ4MEhpUzFRNk9xTnltMW15TzZIUk9oL3pLektlYnY0Y2ZiL2Z1QjhFVE5GU1k0Um8zb0xTIiwiaWF0IjoxNjY2OTAyOTcxfQ.qvE4F8d6VguUiksUfY8YKwjtJxR_XWaT8l3LyHFkg_8",
     };
     const httpResponse = await chai.request(app).post("/login").send(mockLogin);
     expect(httpResponse.status).to.equal(200);
