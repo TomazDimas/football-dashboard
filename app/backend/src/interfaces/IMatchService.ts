@@ -8,4 +8,11 @@ export default interface IMatchService {
   getByProgress(progress: string): Promise<
   { type: string; message: string } | { type: null; message: Match[] }
   >;
+
+  create (
+    homeTeam: string,
+    awayTeam: string,
+    homeTeamGoals: string,
+    awayTeamGoals: string,
+  ): Promise<{ type: null; message: Match }>;
 }

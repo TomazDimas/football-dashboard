@@ -51,4 +51,20 @@ export default class MatchService implements IMatchService {
 
     return { type: null, message: matches };
   };
+
+  create = async (
+    homeTeam: string,
+    awayTeam: string,
+    homeTeamGoals: string,
+    awayTeamGoals: string,
+  ) => {
+    const created = await Match.create({
+      homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress: true,
+    });
+    return { type: null, message: created };
+  };
 }

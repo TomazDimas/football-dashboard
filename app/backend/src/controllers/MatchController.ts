@@ -20,4 +20,18 @@ export default class MatchController {
 
     res.status(200).json(message);
   };
+
+  create = async (req: Request, res: Response) => {
+    const { homeTeam, awayTeam, homeTeamGoals, awayTeamGoals } = req.body;
+    const { type, message } = await this.service.create(
+      homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals,
+    );
+
+    if (type) return res.status(401).json({ message });
+
+    res.status(201).json(message);
+  };
 }
