@@ -20,13 +20,4 @@ export default class MatchController {
 
     res.status(200).json(message);
   };
-
-  // getByProgress = async (req: Request, res: Response) => {
-  //   const { inProgress } = req.query;
-  //   const { type, message } = await this.service.getByProgress(inProgress);
-
-  //   if (type) return res.status(401).json({ message });
-
-  //   res.status(200).json(message);
-  // };
 }
