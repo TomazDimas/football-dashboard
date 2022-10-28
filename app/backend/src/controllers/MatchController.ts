@@ -30,7 +30,7 @@ export default class MatchController {
       awayTeamGoals,
     );
 
-    if (type) return res.status(401).json({ message });
+    if (type) return res.status(422).json({ message });
 
     res.status(201).json(message);
   };
