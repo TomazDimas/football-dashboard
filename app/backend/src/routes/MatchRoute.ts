@@ -10,4 +10,6 @@ router.get('/', MatchContoller.getAll);
 
 router.post('/', MatchContoller.create);
 
+router.patch('/:id/finish', MatchContoller.update);
+
 export default router;

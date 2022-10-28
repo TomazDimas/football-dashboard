@@ -15,4 +15,8 @@ export default interface IMatchService {
     homeTeamGoals: string,
     awayTeamGoals: string,
   ): Promise<{ type: null; message: Match }>;
+
+  update(id: string): Promise<
+  { type: string; message: string } | { type: null; message: string }
+  >;
 }

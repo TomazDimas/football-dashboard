@@ -67,4 +67,11 @@ export default class MatchService implements IMatchService {
     });
     return { type: null, message: created };
   };
+
+  update = async (id: string) => {
+    const updated = await Match.update({ inProgress: 0 }, { where: { id } });
+    if (!updated) return this.invalidMessage;
+
+    return { type: null, message: 'Finished' };
+  };
 }
