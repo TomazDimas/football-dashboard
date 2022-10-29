@@ -58,10 +58,6 @@ export default class MatchService implements IMatchService {
     homeTeamGoals: string,
     awayTeamGoals: string,
   ) => {
-    if (homeTeam === awayTeam) {
-      const message = 'It is not possible to create a match with two equal teams';
-      return { type: 'error', message };
-    }
     const created = await Match.create({
       homeTeam,
       awayTeam,

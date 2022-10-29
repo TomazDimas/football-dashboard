@@ -11,7 +11,7 @@ export default class AuthMiddleware {
       req.body.payload = decoded;
       next();
     } catch (error) {
-      res.status(401).json({ message: 'Expired or invalid token' });
+      res.status(401).json({ message: 'Token must be a valid token' });
     }
   };
 }
