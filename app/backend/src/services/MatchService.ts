@@ -74,4 +74,14 @@ export default class MatchService implements IMatchService {
 
     return { type: null, message: 'Finished' };
   };
+
+  updateScore = async (id: string, homeTeam: string, awayTeam: string) => {
+    const updated = await Match.update(
+      { homeTeamGoals: homeTeam, awayTeamGoals: awayTeam },
+      { where: { id } },
+    );
+
+    if (!updated) return this.invalidMessage;
+    return { type: null, message: updated };
+  };
 }

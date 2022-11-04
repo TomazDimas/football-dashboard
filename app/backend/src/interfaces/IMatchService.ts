@@ -19,4 +19,12 @@ export default interface IMatchService {
   update(id: string): Promise<
   { type: string; message: string } | { type: null; message: string }
   >;
+
+  updateScore(
+    id: string,
+    homeTeamGoals: string,
+    awayTeamGoals: string,
+  ): Promise<
+  { type: string; message: string } | { type: null; message: [number, Match[]]; }
+  >;
 }

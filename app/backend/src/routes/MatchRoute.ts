@@ -14,4 +14,6 @@ router.post('/', AuthMiddleware.validate, MatchMiddleware.validateInsert, MatchC
 
 router.patch('/:id/finish', MatchContoller.update);
 
+router.patch('/:id', MatchContoller.updateScore);
+
 export default router;
