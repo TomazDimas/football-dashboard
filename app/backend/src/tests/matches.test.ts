@@ -1377,4 +1377,44 @@ describe("o endpoint /matches de forma que os dados apareçam corretamente na te
     expect(httpResponse.status).to.equal(200);
     expect(httpResponse.body).to.deep.equal(mockResponse);
   });
+
+  it("teste post /matches", async () => {
+    const mockBody = {
+      "homeTeam": "16",
+      "awayTeam": "8",
+      "homeTeamGoals": "2",
+      "awayTeamGoals": "2"
+    }
+    const mockResponse = {
+      "id": 49,
+      "homeTeam": "16",
+      "awayTeam": "8",
+      "homeTeamGoals": "2",
+      "awayTeamGoals": "2",
+      "inProgress": true
+    }
+    const httpResponse = await chai.request(app).post("/matches").send(mockBody);
+    expect(httpResponse.status).to.equal(201);
+    expect(httpResponse.body).to.deep.equal(mockResponse);
+  });
+
+  it("teste /matches/:id/finish", async () => {
+    const mockResponse = {
+      "message": "Finished"
+    }
+    const httpResponse = await chai.request(app).patch("/matches/42/finish")
+    expect(httpResponse.status).to.equal(201);
+    expect(httpResponse.body).to.deep.equal(mockResponse);
+  });
+
+  it("teste patch /matches/:id", async () => {
+    const mockResponse = {
+      "message": [
+        1
+      ]
+    }
+    const httpResponse = await chai.request(app).patch("/matches/42")
+    expect(httpResponse.status).to.equal(200);
+    expect(httpResponse.body).to.deep.equal(mockResponse);
+  });
 });
