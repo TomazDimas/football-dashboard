@@ -66,16 +66,16 @@ export default class LeaderboardUctil {
   };
 
   public addPoints = async () => {
-    const leaderboard = await this.createLeaderboard();
-    const matches = await this.getMatches();
+    const leaderboard = await this.createLeaderboard(); const matches = await this.getMatches();
     const withPoints = leaderboard.map((teamRank) => {
       let totalPoints = 0;
       let totalGames = 0;
       matches.forEach((matchData) => {
         if (teamRank.name === matchData.teamHome) {
+          console.log('RANK:', teamRank.name, 'MATCH:', matchData.teamHome, 'POINTS:', totalPoints);
           totalGames += 1;
           if (matchData.homeTeamGoals > matchData.awayTeamGoals) totalPoints += 3;
-          if (matchData.homeTeamGoals === matchData.awayTeamGoals) totalPoints += 1;
+          else if (matchData.homeTeamGoals === matchData.awayTeamGoals) totalPoints += 1;
         }
       });
       const currentTeam = teamRank;
@@ -94,13 +94,12 @@ export default class LeaderboardUctil {
       matches.forEach((matchData) => {
         if (teamRank.name === matchData.teamHome) {
           if (matchData.homeTeamGoals > matchData.awayTeamGoals) totalVictories += 1;
-          if (matchData.homeTeamGoals === matchData.awayTeamGoals) totalDraws += 1;
+          else if (matchData.homeTeamGoals === matchData.awayTeamGoals) totalDraws += 1;
           else totalLosses += 1;
         }
       });
       const currentTeam = teamRank;
-      currentTeam.totalVictories = totalVictories;
-      currentTeam.totalDraws = totalDraws;
+      currentTeam.totalVictories = totalVictories; currentTeam.totalDraws = totalDraws;
       currentTeam.totalLosses = totalLosses;
       return currentTeam;
     });
