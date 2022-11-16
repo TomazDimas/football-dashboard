@@ -3,7 +3,7 @@ import Match from '../database/models/Match';
 import Team from '../database/models/Team';
 import IRanking from '../interfaces/IRanking';
 
-export default class LeaderboardUctil {
+export default class AwayLeaderboardUctil {
   public rankingModel = {
     name: '',
     totalPoints: 0,
@@ -71,11 +71,10 @@ export default class LeaderboardUctil {
       let totalPoints = 0;
       let totalGames = 0;
       matches.forEach((matchData) => {
-        if (teamRank.name === matchData.teamHome) {
-          console.log('RANK:', teamRank.name, 'MATCH:', matchData.teamHome, 'POINTS:', totalPoints);
+        if (teamRank.name === matchData.teamAway) {
           totalGames += 1;
-          if (matchData.homeTeamGoals > matchData.awayTeamGoals) totalPoints += 3;
-          else if (matchData.homeTeamGoals === matchData.awayTeamGoals) totalPoints += 1;
+          if (matchData.awayTeamGoals > matchData.homeTeamGoals) totalPoints += 3;
+          else if (matchData.awayTeamGoals === matchData.homeTeamGoals) totalPoints += 1;
         }
       });
       const currentTeam = teamRank;
@@ -92,9 +91,9 @@ export default class LeaderboardUctil {
     const withGames = leaderboard.map((teamRank) => {
       let totalVictories = 0; let totalDraws = 0; let totalLosses = 0;
       matches.forEach((matchData) => {
-        if (teamRank.name === matchData.teamHome) {
-          if (matchData.homeTeamGoals > matchData.awayTeamGoals) totalVictories += 1;
-          else if (matchData.homeTeamGoals === matchData.awayTeamGoals) totalDraws += 1;
+        if (teamRank.name === matchData.teamAway) {
+          if (matchData.awayTeamGoals > matchData.homeTeamGoals) totalVictories += 1;
+          else if (matchData.awayTeamGoals === matchData.homeTeamGoals) totalDraws += 1;
           else totalLosses += 1;
         }
       });
@@ -111,8 +110,8 @@ export default class LeaderboardUctil {
     const withGoals = leaderboard.map((teamRank) => {
       let goalsFavor = 0; let goalsOwn = 0;
       matches.forEach((matchData) => {
-        if (teamRank.name === matchData.teamHome) {
-          goalsFavor += matchData.homeTeamGoals; goalsOwn += matchData.awayTeamGoals;
+        if (teamRank.name === matchData.teamAway) {
+          goalsFavor += matchData.awayTeamGoals; goalsOwn += matchData.homeTeamGoals;
         }
       });
       const currentTeam = teamRank;

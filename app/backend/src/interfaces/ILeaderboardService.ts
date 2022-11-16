@@ -5,4 +5,8 @@ export default interface ILeaderboardService {
   { type: string; message: string } | { type: null; message: IRanking[] }
   >;
 
+  getAwayLeaderboard(): Promise<
+  { type: string; message: string } | { type: null; message: IRanking[] }
+  >;
+
 }

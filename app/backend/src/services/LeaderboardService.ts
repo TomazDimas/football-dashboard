@@ -1,7 +1,9 @@
-import LeaderboardUctil from '../utils/LeaderboardUctil';
+import AwayLeaderboardUctil from '../utils/AwayLeaderboardUctil';
+import HomeLeaderboardUctil from '../utils/HomeLeaderboardUctil';
 
 export default class LeaderboardService {
-  public uctil = new LeaderboardUctil();
+  public homeUctil = new HomeLeaderboardUctil();
+  public awayUctil = new AwayLeaderboardUctil();
 
   invalidMessage = {
     type: 'error',
@@ -9,7 +11,15 @@ export default class LeaderboardService {
   };
 
   getHomeLeaderboard = async () => {
-    const ranking = await this.uctil.addGoals();
+    const ranking = await this.homeUctil.addGoals();
+
+    if (!ranking) return this.invalidMessage;
+
+    return { type: null, message: ranking };
+  };
+
+  getAwayLeaderboard = async () => {
+    const ranking = await this.awayUctil.addGoals();
 
     if (!ranking) return this.invalidMessage;
 

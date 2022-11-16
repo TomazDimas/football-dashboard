@@ -11,4 +11,12 @@ export default class LeaderboardController {
 
     return res.status(200).json(message);
   };
+
+  getAwayLeaderboard = async (req: Request, res: Response) => {
+    const { type, message } = await this.service.getAwayLeaderboard();
+
+    if (type) return res.status(401).json({ message });
+
+    return res.status(200).json(message);
+  };
 }
