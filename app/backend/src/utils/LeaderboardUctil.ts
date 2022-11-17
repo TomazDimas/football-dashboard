@@ -121,7 +121,6 @@ export default class LeaderboardUctil {
         .toFixed(2);
       return currentTeam;
     });
-    console.log(withGoals);
     return withGoals;
   };
 
@@ -167,10 +166,8 @@ export default class LeaderboardUctil {
 
   public addAwayGoals = async () => {
     const leaderboard = await this.addAwayGames(); const matches = await this.getMatches();
-    // console.log('LEADERBOARD:', leaderboard);
     const withGoals = leaderboard.map((teamRank) => {
       let { goalsFavor } = teamRank; let { goalsOwn } = teamRank;
-      // console.log('TIME:', teamRank, 'GOLS FAVOR:', goalsFavor);
       matches.forEach((matchData) => {
         if (teamRank.name === matchData.teamAway) {
           goalsFavor += matchData.awayTeamGoals; goalsOwn += matchData.homeTeamGoals;
