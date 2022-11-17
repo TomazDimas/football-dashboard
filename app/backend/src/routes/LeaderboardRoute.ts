@@ -10,4 +10,6 @@ router.get('/home', LeaderboardContoller.getHomeLeaderboard);
 
 router.get('/away', LeaderboardContoller.getAwayLeaderboard);
 
+router.get('/', LeaderboardContoller.getLeaderboard);
+
 export default router;

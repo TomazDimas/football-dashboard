@@ -9,4 +9,7 @@ export default interface ILeaderboardService {
   { type: string; message: string } | { type: null; message: IRanking[] }
   >;
 
+  getLeaderboard(): Promise<
+  { type: string; message: string } | { type: null; message: IRanking[] }
+  >;
 }
