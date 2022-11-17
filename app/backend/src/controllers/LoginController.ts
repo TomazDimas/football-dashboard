@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-// import IRequest from '../interfaces/IRequest';
 import ILoginService from '../interfaces/ILoginService';
 
 export default class LoginController {
