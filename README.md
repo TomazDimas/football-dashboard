@@ -40,6 +40,7 @@ Por se tratar de um projeto desenvolvido em containers, é necessário o Docker 
 
 # Ferramentas e Habilidades utilizadas
 
+- JavaScript
 - TypeScript;
 - React.JS;
 - Express;
