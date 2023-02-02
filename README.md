@@ -1,13 +1,10 @@
 # Boas vindas ao repositório do FootBall Dashboard :soccer:! 
-Projeto criado por Tomaz Dimas.
+Projeto criado por Tomaz Dimas durante o curso de Desenvolvimento Web da Trybe.
 
-Para realizar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
+# Descrição
 
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
-# Termos e acordos
-
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta e do Manual da Pessoa Estudante da Trybe.
+O FootBall Dashboard é um site informativo sobre partidas e classificações de futebol, onde por meio de um CRUD em uma API é possível registar, ler, atualizar e deletar jogos, onde posteriormente são analisados e inseridos em um ranking de times!
+  ![Exemplo app front](assets/front-example.png)
 
 # Entregáveis
 
