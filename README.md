@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do FootBall Dashboard :soccer! 
+# Boas vindas ao repositório do FootBall Dashboard :soccer:! 
 Projeto criado por Tomaz Dimas.
 
 Para realizar o projeto, atente-se a cada passo descrito a seguir, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
