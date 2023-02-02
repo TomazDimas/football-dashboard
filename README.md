@@ -6,6 +6,7 @@ Projeto criado por Tomaz Dimas durante o curso de Desenvolvimento Web da Trybe.
 O FootBall Dashboard é um site informativo sobre partidas e classificações de futebol, onde por meio de um CRUD em uma API é possível registar, ler, atualizar e deletar jogos, onde posteriormente são analisados e inseridos em um ranking de times!
 
 Esse projeto foi contruido um back-end dockerizado utilizando modelagem de dados através do Sequelize.
+
   ![Exemplo app front](assets/football-dashboard-image.png)
 
 <details>
@@ -36,3 +37,16 @@ Por se tratar de um projeto desenvolvido em containers, é necessário o Docker 
 
 - O projeto contêm um arquivo `docker-compose.yml` que é utilizado pelo avaliador para realizar o _build_ da aplicação.
 - O arquivo `docker-compose.yml` é utilizado para executar a aplicação na sua máquina local, para isso é necessário executar o comando `npm run compose:up` na raiz do projeto.
+
+# Ferramentas e Habilidades utilizadas
+
+- TypeScript;
+- React.JS;
+- Express;
+- Sequelize;
+- MySQL;
+- Docker;
+- Sinon;
+- Chai;
+- TDD (Desenvolvimento Guiado por Testes);
+- POO (Programação Orientada a Objetos).
