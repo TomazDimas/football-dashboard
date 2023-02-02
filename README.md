@@ -4,7 +4,7 @@ Projeto criado por Tomaz Dimas durante o curso de Desenvolvimento Web da Trybe.
 # Descrição
 
 O FootBall Dashboard é um site informativo sobre partidas e classificações de futebol, onde por meio de um CRUD em uma API é possível registar, ler, atualizar e deletar jogos, onde posteriormente são analisados e inseridos em um ranking de times!
-  ![Exemplo app front](assets/front-example.png)
+  ![Exemplo app front](assets/football-dashboard-image.png)
 
 # Entregáveis
 
